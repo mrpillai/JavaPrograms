@@ -5,6 +5,23 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
+
+@FunctionalInterface
+interface Rums{
+	
+	void rum(int x);
+	default void r(){
+		
+	}
+	
+default void r1(){
+		
+	}
+static void rs(){
+	
+}
+}
+
 public class Java8ForEachExample  {
 
 	public static void main(String[] args) {
@@ -33,6 +50,14 @@ public class Java8ForEachExample  {
 		// traversing with Consumer interface implementation
 		MyConsumer action = new MyConsumer();
 		myList.forEach(action);
+		
+		Rums rf = (x)->{
+			System.out.println("funct" +x);
+		};
+		
+		rf.rum(10);
+		rf.r();
+		
 
 	}
 
