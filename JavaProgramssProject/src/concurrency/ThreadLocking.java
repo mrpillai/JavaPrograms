@@ -2,7 +2,9 @@ package concurrency;
 
 // Java code to illustrate Reentrant Locks 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
@@ -37,6 +39,7 @@ class worker implements Runnable {
 
 					// Getting Inner Lock
 					re.lock();
+					
 					System.out.println("Owner:-" + re.owner());
 					try {
 						d = new Date();
@@ -81,6 +84,8 @@ class worker implements Runnable {
 class ReentrantLockClass2 extends ReentrantLock {  
 	   String owner() {  
 	      Thread t =  this.getOwner();  
+	     Collection<Thread> s = this.getQueuedThreads();
+	     List<Thread> a = (List<Thread>) s;
 	      if (t != null) {  
 	         return t.getName();  
 	      } else {  
@@ -94,6 +99,7 @@ public class ThreadLocking {
 
 	public static void main(String[] args) {
 		ReentrantLockClass2 rel = new ReentrantLockClass2();
+	
 		ExecutorService pool = Executors.newFixedThreadPool(MAX_T);
 		Runnable w1 = new worker(rel, "Job1");
 		Runnable w2 = new worker(rel, "Job2");

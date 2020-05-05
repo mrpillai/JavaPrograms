@@ -5,24 +5,27 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
-
 @FunctionalInterface
-interface Rums{
-	
+interface Rums {
+
 	void rum(int x);
-	default void r(){
-		
+
+	default void r() {
+
+	}
+
+	default void r1() {
+
+	}
+
+	static void rs() {
+
 	}
 	
-default void r1(){
-		
-	}
-static void rs(){
 	
-}
 }
 
-public class Java8ForEachExample  {
+public class Java8ForEachExample {
 
 	public static void main(String[] args) {
 
@@ -50,14 +53,13 @@ public class Java8ForEachExample  {
 		// traversing with Consumer interface implementation
 		MyConsumer action = new MyConsumer();
 		myList.forEach(action);
-		
-		Rums rf = (x)->{
-			System.out.println("funct" +x);
+
+		Rums rf = (x) -> {
+			System.out.println("Rums:" + x);
 		};
-		
-		rf.rum(10);
+
+		rf.rum(100);
 		rf.r();
-		
 
 	}
 
@@ -65,7 +67,8 @@ public class Java8ForEachExample  {
 
 // Consumer implementation that can be reused
 class MyConsumer implements Consumer<Integer> {
- int t=10;
+	int t = 10;
+
 	public void accept(Integer t) {
 		System.out.println("Consumer impl Value::" + t);
 	}

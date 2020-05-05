@@ -5,7 +5,7 @@ import java.util.Optional;
 public class Java8Optional {
 
    public static void main(String args[]) {
-      Java8Optional java8Tester = new Java8Optional();
+   /*   Java8Optional java8Tester = new Java8Optional();
       Integer value1 = null;
       Integer value2 = new Integer(10);
 		
@@ -18,7 +18,13 @@ public class Java8Optional {
       Optional<Integer> c = Optional.of(value1);
       System.out.println("C:----"+c);
 
-      System.out.println(java8Tester.sum(a,b));
+      System.out.println(java8Tester.sum(a,b));*/
+      
+      
+      Runnable r = ()->{System.out.println("Runner"+Thread.currentThread());};
+      
+	Thread t = new Thread(r);
+      t.start();
    }
 	
    public Integer sum(Optional<Integer> a, Optional<Integer> b) {
