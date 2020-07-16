@@ -29,5 +29,8 @@ class J_Animal{
 class J_Dog extends J_Animal{
 	public void eat (){
 		System.out.println("Child class");
+		int a=10;
+		int b=20;
+		System.out.println(a+b);
 	}
 }
